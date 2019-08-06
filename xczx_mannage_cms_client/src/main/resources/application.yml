@@ -1,0 +1,19 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: xczx-mannage-cms-client
+  data:
+    mongodb:
+      host: 127.0.0.1
+      database: xc_cms
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+xuecheng:
+  mq:
+    queue: queue_cms_postpage01  #定义消息队列
+    routeingkey : queue_cms_postpage01 #定义routingkey

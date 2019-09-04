@@ -13,7 +13,7 @@ spring:
     username: guest
     password: guest
     virtual-host: /
-xuecheng:
+afan:
   mq:
     queue: queue_cms_postpage01  #定义消息队列
-    routeingkey : queue_cms_postpage01 #定义routingkey
+    routingkey: queue_cms_postpage01 #定义routingkey

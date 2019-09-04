@@ -75,7 +75,7 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
     </appender>
 
 
-    <logger name="org.apache.ibatis.cache.decorators.LoggingCache" level="DEBUG" additivity="false">
+    <logger name="org.apache.ibatis.cache.decorators.LoggingCache" level="INFO" additivity="false">
         <appender-ref ref="stdout"/>
     </logger>
     <logger name="org.springframework.boot" level="DEBUG"/>

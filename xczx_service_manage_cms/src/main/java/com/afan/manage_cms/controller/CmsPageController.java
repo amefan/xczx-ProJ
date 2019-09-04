@@ -9,10 +9,7 @@ import com.afan.domain.cms.request.QueryPageRequest;
 import com.afan.domain.cms.response.CmsPageResult;
 import com.afan.manage_cms.service.CmsPageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +36,19 @@ public class CmsPageController implements CmsPageControllerApi {
 	}
 
 	@Override
+	@PostMapping
 	public CmsPageResult addPage(CmsPage cmsPage) {
+		return null;
+	}
+
+	@Override
+	@GetMapping("/{id}")
+	public CmsPageResult findPageById(@PathVariable  String id) {
+		return cmsPageService.findPageById(id);
+	}
+
+	@Override
+	public CmsPageResult post(String pageId) {
 		return null;
 	}
 }

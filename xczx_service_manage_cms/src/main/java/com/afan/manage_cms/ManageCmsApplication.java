@@ -19,6 +19,7 @@ import javax.persistence.Entity;
 @EntityScan("com.afan.domain.cms")//扫描实体类
 @ComponentScan(basePackages = {"com.afan.api"}) //扫描api接口
 @ComponentScan(basePackages = {"com.afan.manage_cms"} ) // 扫描当前项目下
+@ComponentScan(basePackages = {"com.afan.common"} ) // 扫描common下的类
 public class ManageCmsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ManageCmsApplication.class,args);

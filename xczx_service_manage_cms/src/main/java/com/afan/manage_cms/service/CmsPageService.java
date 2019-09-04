@@ -1,17 +1,24 @@
 package com.afan.manage_cms.service;
 
+import com.afan.common.Exception.ExceptionCast;
+import com.afan.common.Exception.ExceptionCatch;
 import com.afan.common.model.response.CommonCode;
 import com.afan.common.model.response.QueryResponseResult;
 import com.afan.common.model.response.QueryResult;
 import com.afan.domain.cms.CmsPage;
 import com.afan.domain.cms.request.QueryPageRequest;
+import com.afan.domain.cms.response.CmsCode;
 import com.afan.domain.cms.response.CmsPageResult;
 import com.afan.manage_cms.dao.CmsPageDao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 /**
  * @ClassName: CmsPageService
@@ -21,6 +28,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class CmsPageService {
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(CmsPageService.class);
 
 	@Autowired
 	private CmsPageDao cmsPageDao;
@@ -57,4 +66,13 @@ public class CmsPageService {
 
 	   return new CmsPageResult(CommonCode.FAIL, null);
    }
+
+	public CmsPageResult findPageById(String id) {
+		Optional<CmsPage> cmsPage = cmsPageDao.findById(id);
+		if(!cmsPage.isPresent()){
+
+			ExceptionCast.cast(CmsCode.CMS_ADDPAGE_NOTEXISTS);
+		}
+		return new CmsPageResult(CommonCode.SUCCESS,cmsPage.get());
+	}
 }

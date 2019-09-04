@@ -84,4 +84,9 @@ public class CmsManageDaoTest {
 	public void delete(){
 		cmsPageDao.deleteById("5d317e131de9b43470347513");
 	}
+
+	@Test
+	public void findById(){
+		System.out.println(cmsPageDao.findById("1").get());
+	}
 }

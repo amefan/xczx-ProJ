@@ -23,4 +23,9 @@ public interface CmsPageControllerApi {
 
     @ApiOperation("添加页面")
     public CmsPageResult addPage(@RequestBody CmsPage cmsPage);
+
+    public CmsPageResult findPageById(String id);
+
+    @ApiOperation("发布页面")
+    public CmsPageResult post(String pageId);
 }
